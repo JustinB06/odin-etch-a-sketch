@@ -1,8 +1,10 @@
+const DEFAULT_GRID_SIZE = 16;
+
 /* Get DOM object references */
 let containerRef = document.querySelector("#container");
 
 /* Create a 16x16 grid of square divs */
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < DEFAULT_GRID_SIZE; i++) {
   /* We put every row of divs into its own flexbox 
     container, which will allow them to expand 
     horizontally properly */
@@ -10,7 +12,7 @@ for (let i = 0; i < 16; i++) {
   rowContainerDiv.style["display"] = "flex";
 
   /* Create each square of the current row */
-  for (let j = 0; j < 16; j++) {
+  for (let j = 0; j < DEFAULT_GRID_SIZE; j++) {
     let squareDiv = document.createElement("div");
 
     squareDiv.classList.add("square");
