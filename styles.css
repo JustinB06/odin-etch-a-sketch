@@ -1,3 +1,7 @@
+h1 {
+  text-align: center;
+}
+
 .square {
   /* Will cause the flex item to grow and
     shrink, from its baseline CSS width */
