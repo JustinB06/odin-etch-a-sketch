@@ -1,0 +1,11 @@
+.square {
+  /* Will cause the flex item to grow and
+    shrink, from its baseline CSS width */
+  flex: 1 1 auto;
+
+  /* Will set the element's dimensions to a 
+    width-to-height ratio of 1, forming a square. */
+  aspect-ratio: 1 / 1;
+
+  border: 0.1rem solid black;
+}
