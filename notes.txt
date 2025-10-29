@@ -1,0 +1,9 @@
+According to copilot AI:
+- body {height:100vh} doesn’t automatically make 
+the grid fit inside that space — it makes the body 
+the height of the viewport but still allows its 
+children to overflow.
+    - Also using body {width:100vw} in conjuction 
+    with heightcan cause a horizontal scrollbar 
+    when the vertical scrollbar consumes some of 
+    the viewport width.

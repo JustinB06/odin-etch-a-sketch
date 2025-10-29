@@ -1,27 +1,31 @@
 const DEFAULT_GRID_SIZE = 16;
 
-/* Get DOM object references */
-let containerRef = document.querySelector("#container");
+createGrid(DEFAULT_GRID_SIZE);
 
-/* Create a 16x16 grid of square divs */
-for (let i = 0; i < DEFAULT_GRID_SIZE; i++) {
-  /* We put every row of divs into its own flexbox 
+function createGrid(size) {
+  /* Get DOM object references */
+  let containerRef = document.querySelector("#container");
+
+  /* Create a 16x16 grid of square divs */
+  for (let i = 0; i < size; i++) {
+    /* We put every row of divs into its own flexbox 
     container, which will allow them to expand 
     horizontally properly */
-  let rowContainerDiv = document.createElement("div");
-  rowContainerDiv.style["display"] = "flex";
+    let rowContainerDiv = document.createElement("div");
+    rowContainerDiv.style["display"] = "flex";
 
-  /* Create each square of the current row */
-  for (let j = 0; j < DEFAULT_GRID_SIZE; j++) {
-    let squareDiv = document.createElement("div");
+    /* Create each square of the current row */
+    for (let j = 0; j < size; j++) {
+      let squareDiv = document.createElement("div");
 
-    squareDiv.classList.add("square");
-    squareDiv.addEventListener("mouseover", hover);
+      squareDiv.classList.add("square");
+      squareDiv.addEventListener("mouseover", hover);
 
-    rowContainerDiv.appendChild(squareDiv);
+      rowContainerDiv.appendChild(squareDiv);
+    }
+
+    containerRef.appendChild(rowContainerDiv);
   }
-
-  containerRef.appendChild(rowContainerDiv);
 }
 
 function hover(event) {

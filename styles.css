@@ -5,7 +5,7 @@ h1 {
 .square {
   /* Will cause the flex item to grow and
     shrink, from its baseline CSS width */
-  flex: 1 1 auto;
+  flex: 1 1 0;
 
   /* Will set the element's dimensions to a 
     width-to-height ratio of 1, forming a square. */
