@@ -4,13 +4,29 @@ the grid fit inside that space — it makes the body
 the height of the viewport but still allows its 
 children to overflow.
     - Also using body {width:100vw} in conjuction 
-    with heightcan cause a horizontal scrollbar 
+    with height can cause a horizontal scrollbar 
     when the vertical scrollbar consumes some of 
     the viewport width.
 
 ===========================================
 
-- I believe that the CSS "aspect-ratio" property
-was preventing the squares from shrinking 
-vertically. It was attempting to keep the squares
-dimensionally square.
+- The combination of the CSS "aspect-ratio" property
+and the "align-items:stretch" default value was
+preventing the squares of shrinking vertically.
+    - The squares having a stretched width caused
+    the squares to have a stretched height due to
+    the "aspect-ratio" property.
+        - The increased square height caused the 
+        grid to overflow in the y direction over 
+        the page.
+        - Finally, setting "min-height:0" on the row
+        flex items allowed them to shrink. This 
+        would only shrink them in the y direction 
+        though, causing the squares to retain their
+        stretched width.
+        - Thus, using "align-items:center" prevented
+        the stretched width."min-height:0" will
+        act as a backup for when the row width 
+        grows too large, and the squares must be
+        still be shrunk in the y direction to
+        prevent overflow.
