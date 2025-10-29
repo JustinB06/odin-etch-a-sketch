@@ -10,9 +10,7 @@ children to overflow.
 
 ===========================================
 
-- It might have to do with the virtual machine's
-screen size, so let's try not using 
-body{height:100vh} at all. Instead using 80vh or    
-something.
-
-- Maybe also the min-height property can be used.
+- I believe that the CSS "aspect-ratio" property
+was preventing the squares from shrinking 
+vertically. It was attempting to keep the squares
+dimensionally square.

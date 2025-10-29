@@ -1,7 +1,7 @@
 const DEFAULT_GRID_SIZE = 16;
 
 // createGrid(DEFAULT_GRID_SIZE);
-createGrid(10);
+createGrid(100);
 
 function createGrid(size) {
   /* Get DOM object references */
@@ -13,7 +13,7 @@ function createGrid(size) {
     container, which will allow them to expand 
     horizontally properly */
     let rowContainerDiv = document.createElement("div");
-    rowContainerDiv.style["display"] = "flex";
+    rowContainerDiv.classList.add("row");
 
     /* Create each square of the current row */
     for (let j = 0; j < size; j++) {
