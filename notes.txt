@@ -7,3 +7,12 @@ children to overflow.
     with heightcan cause a horizontal scrollbar 
     when the vertical scrollbar consumes some of 
     the viewport width.
+
+===========================================
+
+- It might have to do with the virtual machine's
+screen size, so let's try not using 
+body{height:100vh} at all. Instead using 80vh or    
+something.
+
+- Maybe also the min-height property can be used.

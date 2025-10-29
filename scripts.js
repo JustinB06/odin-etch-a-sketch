@@ -1,6 +1,7 @@
 const DEFAULT_GRID_SIZE = 16;
 
-createGrid(DEFAULT_GRID_SIZE);
+// createGrid(DEFAULT_GRID_SIZE);
+createGrid(10);
 
 function createGrid(size) {
   /* Get DOM object references */
