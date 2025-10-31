@@ -30,3 +30,9 @@ preventing the squares of shrinking vertically.
         grows too large, and the squares must be
         still be shrunk in the y direction to
         prevent overflow.
+
+==============================================
+
+- NodeReference.replaceChildren()
+    - With no arguments, the method will remove
+    all child nodes from an element node.

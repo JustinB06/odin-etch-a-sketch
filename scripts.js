@@ -2,9 +2,15 @@ const DEFAULT_GRID_SIZE = 16;
 
 createGrid(DEFAULT_GRID_SIZE);
 
+promptUser();
+
 function createGrid(size) {
   /* Get DOM object references */
-  let containerRef = document.querySelector("#container");
+  let containerRef = document.querySelector("#grid-container");
+
+  /* Clear all children of the container div, just
+    in case a grid already exists */
+  containerRef.replaceChildren();
 
   /* Create a 16x16 grid of square divs */
   for (let i = 0; i < size; i++) {
@@ -28,6 +34,19 @@ function createGrid(size) {
   }
 }
 
+function promptUser() {
+  let buttonRef = document.querySelector("#grid-size-button");
+  buttonRef.addEventListener("click", buttonClickHandler);
+}
+
 function hoverHandler(event) {
   event.target.style["background-color"] = "green";
+}
+
+function buttonClickHandler(event) {
+  const promptForUser =
+    "Grid Creation:\nEnter the number of squares per side.\nMaximum size = 100";
+  let newGridSize = prompt(promptForUser, "100");
+
+  createGrid(newGridSize);
 }
