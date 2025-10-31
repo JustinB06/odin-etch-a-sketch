@@ -19,7 +19,7 @@ function createGrid(size) {
       let squareDiv = document.createElement("div");
 
       squareDiv.classList.add("square");
-      squareDiv.addEventListener("mouseover", hover);
+      squareDiv.addEventListener("mouseover", hoverHandler);
 
       rowContainerDiv.appendChild(squareDiv);
     }
@@ -28,6 +28,6 @@ function createGrid(size) {
   }
 }
 
-function hover(event) {
+function hoverHandler(event) {
   event.target.style["background-color"] = "green";
 }
