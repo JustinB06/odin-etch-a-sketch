@@ -36,3 +36,10 @@ preventing the squares of shrinking vertically.
 - NodeReference.replaceChildren()
     - With no arguments, the method will remove
     all child nodes from an element node.
+
+- Was able to generate rgb values from math.random(),
+and created the actual rgb declaration using a 
+template string. It wouldn't work otherwise.
+    - The template string: `rgb(${r}, ${g}, ${b})`
+    - I would guess that this is necessary because
+    CSS property values are stored as strings?

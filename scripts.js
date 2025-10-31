@@ -2,7 +2,7 @@ const DEFAULT_GRID_SIZE = 16;
 
 createGrid(DEFAULT_GRID_SIZE);
 
-promptUser();
+setupUserPromptButton();
 
 function createGrid(size) {
   /* Get DOM object references */
@@ -34,19 +34,28 @@ function createGrid(size) {
   }
 }
 
-function promptUser() {
+function setupUserPromptButton() {
   let buttonRef = document.querySelector("#grid-size-button");
-  buttonRef.addEventListener("click", buttonClickHandler);
+  buttonRef.addEventListener("click", userPromptButtonClickHandler);
 }
 
 function hoverHandler(event) {
-  event.target.style["background-color"] = "green";
+  // event.target.style["background-color"] = "green";
+  backgroundColorRandomizer(event);
 }
 
-function buttonClickHandler(event) {
+function userPromptButtonClickHandler(event) {
   const promptForUser =
     "Grid Creation:\nEnter the number of squares per side.\nMaximum size = 100";
   let newGridSize = prompt(promptForUser, "100");
 
   createGrid(newGridSize);
+}
+
+function backgroundColorRandomizer(event) {
+  let r = Math.floor(Math.random() * 255);
+  let g = Math.floor(Math.random() * 255);
+  let b = Math.floor(Math.random() * 255);
+
+  event.target.style["background-color"] = `rgb(${r}, ${g}, ${b})`;
 }
