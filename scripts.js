@@ -25,7 +25,7 @@ function createGrid(size) {
       let squareDiv = document.createElement("div");
 
       squareDiv.classList.add("square");
-      squareDiv.addEventListener("mouseover", hoverHandler);
+      squareDiv.addEventListener("mouseover", mouseHoverHandler);
 
       rowContainerDiv.appendChild(squareDiv);
     }
@@ -39,12 +39,14 @@ function setupUserPromptButton() {
   buttonRef.addEventListener("click", userPromptButtonClickHandler);
 }
 
-function hoverHandler(event) {
-  // event.target.style["background-color"] = "green";
+function mouseHoverHandler(event) {
   backgroundColorRandomizer(event);
+
+  opacityDecreaser(event);
+  console.log(event.target.style.opacity);
 }
 
-function userPromptButtonClickHandler(event) {
+function userPromptButtonClickHandler() {
   const promptForUser =
     "Grid Creation:\nEnter the number of squares per side.\nMaximum size = 100";
   let newGridSize = prompt(promptForUser, "100");
@@ -58,4 +60,30 @@ function backgroundColorRandomizer(event) {
   let b = Math.floor(Math.random() * 255);
 
   event.target.style["background-color"] = `rgb(${r}, ${g}, ${b})`;
+
+  /* Q: Why is this neccesary when we can just 
+    specify "opacity:1" as a css rule for .square
+    in styles.css?
+  
+    A: I believe that, when we use 
+    "event.target.style", we're interacting with 
+    an HTML element's style property. This involves
+    inline styling. 
+    
+    Therefore, when we use "currentOpacity = 
+    event.target.style.opacity;" in function
+    opacityDecreaser(), we're retrieving inline
+    style values. If we don't set the inline 
+    style value for opacity ourselves, we won't 
+    find a value later at all. Thus, we must
+    first set an inline style opacity value.*/
+  if (event.target.style["opacity"] === "") {
+    event.target.style["opacity"] = "1";
+  }
+}
+
+function opacityDecreaser(event) {
+  /* Decrease the square's opacity by 10% */
+  let currentOpacity = event.target.style.opacity;
+  event.target.style.opacity = `${Number(currentOpacity) - 0.1}`;
 }

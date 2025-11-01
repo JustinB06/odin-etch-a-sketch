@@ -37,9 +37,23 @@ preventing the squares of shrinking vertically.
     - With no arguments, the method will remove
     all child nodes from an element node.
 
+==============================================
+
 - Was able to generate rgb values from math.random(),
 and created the actual rgb declaration using a 
 template string. It wouldn't work otherwise.
     - The template string: `rgb(${r}, ${g}, ${b})`
     - I would guess that this is necessary because
-    CSS property values are stored as strings?
+    CSS property values are stored as strings 
+    internally?
+
+==============================================
+
+- I believe that, when we use "event.target.style", 
+we're interacting with an HTML element's style 
+property. This involves inline styling.
+    - As a result, we cannot use "event.target.style"
+    to retrieve CSS rule property names or values.
+        - It might be possible using something like
+        "document.styleSheets[0].cssRules" but this
+        might be more cumbersome, who knows.
