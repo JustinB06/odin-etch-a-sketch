@@ -53,7 +53,8 @@ template string. It wouldn't work otherwise.
 we're interacting with an HTML element's style 
 property. This involves inline styling.
     - As a result, we cannot use "event.target.style"
-    to retrieve CSS rule property names or values.
+    to retrieve external CSS rule property names or 
+    values.
         - It might be possible using something like
         "document.styleSheets[0].cssRules" but this
         might be more cumbersome, who knows.
